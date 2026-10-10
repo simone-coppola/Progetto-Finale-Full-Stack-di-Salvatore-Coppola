@@ -1,0 +1,411 @@
+.skill-card {
+  width: 100%;
+  min-height: 215px;
+
+  display: flex;
+  align-items: stretch;
+
+  box-sizing: border-box;
+
+  padding: 20px;
+
+  background: var(--card-background);
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px var(--shadow-color);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--primary-color);
+
+  box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+/* =========================================
+   ICONA SINISTRA
+========================================= */
+
+.skill-icon-wrapper {
+  width: 72px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  padding-top: 2px;
+
+  flex-shrink: 0;
+}
+
+.skill-icon {
+  width: 56px;
+  height: 56px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================
+   CONTENUTO
+========================================= */
+
+.skill-card-content {
+  flex: 1;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.skill-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  min-width: 0;
+}
+
+.skill-info {
+  min-width: 0;
+}
+
+.skill-info h3 {
+  margin: 0;
+
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+
+  color: var(--text-primary);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.skill-category {
+  display: inline-block;
+
+  margin-top: 5px;
+
+  padding: 4px 8px;
+
+  background: var(--surface-blue);
+
+  border-radius: 5px;
+
+  color: var(--primary-color);
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* =========================================
+   COMPLETATA
+========================================= */
+
+.skill-completed-icon {
+  flex-shrink: 0;
+
+  color: var(--success-color);
+}
+
+/* =========================================
+   PROGRESSO
+========================================= */
+
+.skill-progress {
+  width: 100%;
+  background: transparent;
+  margin-top: auto;
+  margin: 16px 0;
+  border-radius: 0;
+}
+
+.skill-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  gap: 10px;
+
+  margin-bottom: 8px;
+}
+
+.skill-progress-header span {
+  font-size: 11px;
+
+  color: var(--text-secondary);
+}
+
+.skill-progress-header strong {
+  font-size: 12px;
+  font-weight: 700;
+
+  color: var(--text-primary);
+}
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.skill-progress-bar {
+  width: 100%;
+  height: 7px;
+
+  overflow: hidden;
+
+  background: var(--surface-hover);
+
+  border-radius: 999px;
+}
+
+.skill-progress-fill {
+  height: 100%;
+
+  border-radius: 999px;
+
+  transition: width 0.35s ease;
+}
+
+.skill-progress-fill.tone-primary {
+  background: var(--primary-color);
+}
+
+.skill-progress-fill.tone-success {
+  background: var(--success-color);
+}
+
+.skill-progress-fill.tone-danger {
+  background: var(--danger-color);
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.skill-card-footer {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  box-sizing: border-box;
+
+  padding-top: 13px;
+
+  border-top: 1px solid var(--border-color);
+}
+
+.skill-experience {
+  min-width: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 10px;
+
+  color: var(--text-secondary);
+}
+
+/* =========================================
+   STATUS
+========================================= */
+
+.skill-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.skill-status.in-progress {
+  background: var(--surface-blue);
+
+  color: var(--primary-color);
+}
+
+.skill-status.completed {
+  background: var(--success-background);
+
+  color: var(--success-color);
+}
+
+/* =========================================
+   AZIONI
+========================================= */
+
+.skill-card-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+.edit-skill-button,
+.delete-skill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.edit-skill-button {
+  background: var(--surface-blue);
+  color: var(--primary-color);
+
+  border: 1px solid transparent;
+}
+
+.edit-skill-button:hover {
+  border-color: var(--primary-color);
+
+  transform: translateY(-1px);
+}
+
+.delete-skill-button {
+  background: transparent;
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border-color);
+}
+
+.delete-skill-button:hover {
+  background: var(--surface-hover);
+
+  color: var(--text-primary);
+
+  border-color: var(--border-input);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   COMPLETATA
+========================================= */
+
+.skill-card-completed {
+  .skill-progress-fill {
+    background: var(--success-color);
+  }
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+  .skill-card {
+    min-height: 205px;
+
+    padding: 18px;
+  }
+
+  .skill-icon-wrapper {
+    width: 64px;
+  }
+
+  .skill-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .skill-icon svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .skill-info h3 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .skill-card {
+    padding: 16px;
+  }
+
+  .skill-icon-wrapper {
+    width: 58px;
+  }
+
+  .skill-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skill-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .skill-card-footer {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .skill-card-actions {
+    width: 100%;
+  }
+
+  .edit-skill-button,
+  .delete-skill-button {
+    flex: 1;
+  }
+}

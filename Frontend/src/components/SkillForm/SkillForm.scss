@@ -1,0 +1,408 @@
+.skill-form {
+  width: 100%;
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  background: var(--card-background);
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+
+  box-shadow: 0 15px 35px var(--shadow-color);
+}
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.skill-form-group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  margin-bottom: 18px;
+}
+
+.skill-form-group > label {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+/* =========================================
+   INPUT / SELECT / TEXTAREA
+========================================= */
+
+.skill-form-group input[type="text"],
+.skill-form-group input[type="number"],
+.skill-form-group select,
+.skill-form-group textarea {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  padding: 10px 11px;
+
+  background: var(--input-background);
+  color: var(--text-primary);
+
+  border: 1px solid var(--border-input);
+  border-radius: 8px;
+
+  outline: none;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.skill-form-group input[type="text"]:focus,
+.skill-form-group input[type="number"]:focus,
+.skill-form-group select:focus,
+.skill-form-group textarea:focus {
+  border-color: var(--primary-color);
+
+  box-shadow:
+    0 0 0 3px var(--surface-blue);
+}
+
+/* =========================================
+   SELECT
+========================================= */
+
+.skill-form-group select {
+  cursor: pointer;
+}
+
+/* =========================================
+   TEXTAREA
+========================================= */
+
+.skill-form-group textarea {
+  min-height: 90px;
+
+  resize: vertical;
+
+  line-height: 1.5;
+}
+
+/* =========================================
+   ICON PICKER
+========================================= */
+
+.skill-icon-picker {
+  display: grid;
+
+  grid-template-columns: repeat(
+    6,
+    minmax(0, 1fr)
+  );
+
+  gap: 7px;
+
+  padding: 8px;
+
+  background: var(--surface-secondary);
+
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+}
+
+.skill-icon-option {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  background: var(--card-background);
+  color: var(--text-secondary);
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.skill-icon-option:hover {
+  color: var(--primary-color);
+
+  border-color: var(--border-input);
+
+  transform: translateY(-1px);
+}
+
+.skill-icon-option.selected {
+  color: var(--primary-color);
+
+  background: var(--surface-blue);
+
+  border-color: var(--primary-color);
+}
+
+/* =========================================
+   LEVEL LABEL
+========================================= */
+
+.skill-level-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 4px;
+}
+
+.skill-level-label label {
+  margin: 0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--text-primary);
+}
+
+.skill-level-label span {
+  font-size: 13px;
+  font-weight: 600;
+
+  color: var(--primary-color);
+}
+
+/* =========================================
+   LEVEL RANGE
+========================================= */
+
+.skill-level-range {
+  width: 100%;
+  height: 6px;
+
+  margin: 8px 0;
+
+  padding: 0;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  background: var(--border-color);
+
+  border: none;
+  border-radius: 999px;
+
+  outline: none;
+
+  cursor: pointer;
+}
+
+/* Chrome / Edge / Safari */
+
+.skill-level-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+
+  background: var(--border-color);
+
+  border-radius: 999px;
+}
+
+.skill-level-range::-webkit-slider-thumb {
+  width: 18px;
+  height: 18px;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+  margin-top: -6px;
+
+  background: var(--primary-color);
+
+  border: 3px solid var(--card-background);
+  border-radius: 50%;
+
+  box-shadow:
+    0 1px 5px var(--shadow-color);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.skill-level-range::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+
+  box-shadow:
+    0 2px 8px var(--shadow-color);
+}
+
+.skill-level-range::-webkit-slider-thumb:active {
+
+  transform: scale(1.15);
+}
+
+/* Firefox */
+
+.skill-level-range::-moz-range-track {
+  width: 100%;
+  height: 6px;
+
+  background: var(--border-color);
+
+  border-radius: 999px;
+}
+
+.skill-level-range::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+
+  background: var(--primary-color);
+
+  border: 3px solid var(--card-background);
+  border-radius: 50%;
+
+  box-shadow:
+    0 1px 5px var(--shadow-color);
+}
+
+.skill-level-range::-moz-range-thumb:hover {
+  transform: scale(1.1);
+}
+
+/* =========================================
+   RANGE VALUES
+========================================= */
+
+.skill-range-values {
+  display: flex;
+  justify-content: space-between;
+
+  margin-top: 2px;
+
+  font-size: 11px;
+
+  color: var(--text-muted);
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.skill-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 10px;
+
+  margin-top: 24px;
+  padding-top: 18px;
+
+  border-top: 1px solid var(--border-color);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.skill-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 10px 15px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.15s ease;
+}
+
+.skill-button:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   SECONDARY BUTTON
+========================================= */
+
+.skill-button-secondary {
+  background: var(--card-background);
+  color: var(--text-secondary);
+
+  border: 1px solid var(--border-color);
+}
+
+.skill-button-secondary:hover {
+  background: var(--surface-hover);
+
+  color: var(--text-primary);
+
+  border-color: var(--border-input);
+}
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
+.skill-button-primary {
+  background: var(--primary-color);
+  color: #ffffff;
+
+  border: 1px solid var(--primary-color);
+}
+
+.skill-button-primary:hover {
+  background: var(--primary-hover);
+
+  border-color: var(--primary-hover);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 500px) {
+  .skill-form {
+    padding: 18px;
+  }
+
+  .skill-icon-picker {
+    grid-template-columns: repeat(
+      4,
+      minmax(0, 1fr)
+    );
+  }
+
+  .skill-form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .skill-button {
+    width: 100%;
+  }
+}
