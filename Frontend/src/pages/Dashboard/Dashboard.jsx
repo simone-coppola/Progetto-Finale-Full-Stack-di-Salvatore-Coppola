@@ -7,6 +7,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import {Link} from "react-router-dom";
 import { useState, useEffect } from "react";
 
 import { getSkillsApi, getGoalsApi } from "../../services/api";
@@ -273,10 +274,10 @@ function Dashboard() {
               )}
             </div>
           </div>
-          <a href="/skills">
+          <Link to="/skills">
             Vedi tutte
             <ArrowRight size={15} />
-          </a>
+          </Link>
         </div>
 
         {/* PROGRESSO MEDIO DEGLI OBIETTIVI */}
@@ -344,10 +345,10 @@ function Dashboard() {
             </div>
           </div>
 
-          <a href="/goals">
+          <Link to="/goals">
             Vedi tutti
             <ArrowRight size={15} />
-          </a>
+          </Link>
         </div>
 
         {/* PROGRESSO COMPLESSIVO */}
@@ -440,10 +441,10 @@ function Dashboard() {
             <p>Le competenze che stai sviluppando.</p>
           </div>
 
-          <a href="/skills">
+          <Link to="/skills">
             Vedi tutte
             <ArrowRight size={15} />
-          </a>
+          </Link>
         </div>
 
         <div className="dashboard-skills-grid">
@@ -465,10 +466,10 @@ function Dashboard() {
             <p>I tuoi obiettivi di apprendimento.</p>
           </div>
 
-          <a href="/goals">
+          <Link to="/goals">
             Vedi tutti
             <ArrowRight size={15} />
-          </a>
+          </Link>
         </div>
 
         <div className="dashboard-goals-grid">
