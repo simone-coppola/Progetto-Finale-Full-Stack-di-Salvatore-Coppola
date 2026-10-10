@@ -7,13 +7,15 @@ import {
   User,
   ChevronDown,
   LogOut,
+  Menu,
+  X,
 } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { useAuth } from "../../context/AuthContext";
 
 import "./Navbar.scss";
 
-function Navbar() {
+function Navbar({ mobileMenuOpen, onMenuClick }) {
   const navigate = useNavigate();
   const { user, logout } = useAuth();
   const { theme, toggleTheme } = useTheme();
@@ -39,6 +41,15 @@ function Navbar() {
 
   return (
     <header className="navbar">
+      <button
+        type="button"
+        className="mobile-menu-button"
+        aria-label={mobileMenuOpen ? "Chiudi menu" : "Apri menu"}
+        aria-expanded={mobileMenuOpen}
+        onClick={onMenuClick}
+      >
+        {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+      </button>
       <form className="search-container" onSubmit={handleSearch}>
         <Search size={20} aria-hidden="true" />
 
@@ -62,7 +73,9 @@ function Navbar() {
           id="navbar-search"
           type="text"
           placeholder={
-            searchType === "skills" ? "Cerca una skill..." : "Cerca un obiettivo..."
+            searchType === "skills"
+              ? "Cerca una skill..."
+              : "Cerca un obiettivo..."
           }
           value={search}
           onChange={(event) => setSearch(event.target.value)}
@@ -86,7 +99,9 @@ function Navbar() {
           className="theme-button"
           onClick={toggleTheme}
           title={theme === "light" ? "Attiva tema scuro" : "Attiva tema chiaro"}
-          aria-label={theme === "light" ? "Attiva tema scuro" : "Attiva tema chiaro"}
+          aria-label={
+            theme === "light" ? "Attiva tema scuro" : "Attiva tema chiaro"
+          }
         >
           {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
         </button>

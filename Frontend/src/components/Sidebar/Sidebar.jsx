@@ -10,7 +10,7 @@ import {
 import { useState } from "react";
 import "./Sidebar.scss";
 
-function Sidebar() {
+function Sidebar({ mobileOpen, onClose }) {
   const [collapsed, setCollapsed] = useState(false);
 
   const menuItems = [
@@ -39,7 +39,11 @@ function Sidebar() {
   const bottomItems = [];
 
   return (
-    <aside className={`sidebar ${collapsed ? "collapsed" : ""}`}>
+    <aside
+      className={`sidebar ${collapsed ? "collapsed" : ""} ${
+        mobileOpen ? "mobile-open" : ""
+      }`}
+    >
       {/* Header */}
       <div className="sidebar-header">
         {!collapsed && <h2>SkillTrack</h2>}
@@ -68,9 +72,7 @@ function Sidebar() {
             >
               <Icon size={20} />
 
-              {!collapsed && (
-                <span>{item.name}</span>
-              )}
+              {!collapsed && <span>{item.name}</span>}
             </NavLink>
           );
         })}
@@ -85,15 +87,14 @@ function Sidebar() {
             <NavLink
               key={item.path}
               to={item.path}
+              onClick={onClose}
               className={({ isActive }) =>
                 `sidebar-link ${isActive ? "active" : ""}`
               }
             >
               <Icon size={20} />
 
-              {!collapsed && (
-                <span>{item.name}</span>
-              )}
+              {!collapsed && <span>{item.name}</span>}
             </NavLink>
           );
         })}

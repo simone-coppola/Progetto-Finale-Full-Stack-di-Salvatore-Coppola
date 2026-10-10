@@ -5,6 +5,7 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
+import { useState } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Progressi from "./pages/Progressi/Progressi";
@@ -20,6 +21,7 @@ import "./App.scss";
 
 function ProtectedLayout() {
   const { isAuthenticated, isCheckingAuth } = useAuth();
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   if (isCheckingAuth) {
     return <p>Verifica della sessione...</p>;
@@ -31,9 +33,25 @@ function ProtectedLayout() {
 
   return (
     <div className="app">
-      <Sidebar />
+      <Sidebar
+        mobileOpen={mobileSidebarOpen}
+        onClose={() => setMobileSidebarOpen(false)}
+      />
+
+      {mobileSidebarOpen && (
+        <button
+          type="button"
+          className="sidebar-backdrop"
+          aria-label="Chiudi menu"
+          onClick={() => setMobileSidebarOpen(false)}
+        />
+      )}
+
       <div className="main-container">
-        <Navbar />
+        <Navbar
+          mobileMenuOpen={mobileSidebarOpen}
+          onMenuClick={() => setMobileSidebarOpen((open) => !open)}
+        />
         <main>
           <Outlet />
         </main>
